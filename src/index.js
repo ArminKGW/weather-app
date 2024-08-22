@@ -8,6 +8,14 @@ const feelsLike = document.querySelector('.feels-like');
 const humidity = document.querySelector('.humidity');
 const windSpeed = document.querySelector('.wind-speed');
 
+function showError(error) {
+  city.textContent = error;
+  temp.textContent = '';
+  feelsLike.textContent = '';
+  humidity.textContent = '';
+  windSpeed.textContent = '';
+}
+
 async function getData(city) {
   const cityLowerCase = city.toLowerCase();
   try {
@@ -16,20 +24,22 @@ async function getData(city) {
       { mode: 'cors' },
     );
     if (!response.ok) {
-      throw new Error('Network response was not ok!');
+      throw new Error(`No results found. status: ${response.status}`);
     }
     const data = await response.json();
     const currentConditions = data.currentConditions;
     const { temp, feelslike, humidity, windspeed } = currentConditions;
     return { temp, feelslike, humidity, windspeed };
   } catch (error) {
-    console.log(error);
+    showError(error);
   }
 }
 
 async function showData() {
+  if (!inputCity.value) return;
   const cityName = inputCity.value;
   const data = await getData(cityName);
+  if (!data) return;
   city.textContent = cityName;
   temp.textContent = data.temp;
   feelsLike.textContent = data.feelslike;
@@ -44,4 +54,4 @@ function handleEvents() {
   });
 }
 
-// handleEvents();
+handleEvents();
