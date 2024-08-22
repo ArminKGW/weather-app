@@ -27,24 +27,33 @@ async function getData(city) {
       throw new Error(`No results found. status: ${response.status}`);
     }
     const data = await response.json();
+    if (!data || !data.currentConditions) {
+      throw new Error(`No weather data available for ${city}.`);
+    }
     const currentConditions = data.currentConditions;
     const { temp, feelslike, humidity, windspeed } = currentConditions;
     return { temp, feelslike, humidity, windspeed };
   } catch (error) {
-    showError(error);
+    showError(error.message);
   }
 }
 
 async function showData() {
   if (!inputCity.value) return;
-  const cityName = inputCity.value;
+  city.textContent = 'Loading...';
+  temp.textContent = '';
+  feelsLike.textContent = '';
+  humidity.textContent = '';
+  windSpeed.textContent = '';
+  const cityName =
+    inputCity.value[0].toUpperCase() + inputCity.value.slice(1).toLowerCase();
   const data = await getData(cityName);
   if (!data) return;
   city.textContent = cityName;
-  temp.textContent = data.temp;
-  feelsLike.textContent = data.feelslike;
-  humidity.textContent = data.humidity;
-  windSpeed.textContent = data.windspeed;
+  temp.textContent = `${data.temp} °C`;
+  feelsLike.textContent = `Feels like: ${data.feelslike} °C`;
+  humidity.textContent = `Humidity: ${data.humidity} %`;
+  windSpeed.textContent = `Wind Speed: ${data.windspeed} km/h`;
 }
 
 function handleEvents() {
