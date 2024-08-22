@@ -7,7 +7,7 @@ body {
   margin: 0;
   height: 100vh;
   display: grid;
-  grid-template-rows: 20% 1fr 15%;
+  grid-template-rows: 15% 1fr 10%;
 }
 
 .header-box {
@@ -31,7 +31,67 @@ img {
 }
 
 .container {
-  background-color: rgb(209, 198, 198);
+  background-color: rgb(94, 94, 224);
+}
+
+.box {
+  margin: 40px auto;
+  height: 70%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4em;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+input {
+  appearance: none;
+  width: 45%;
+  height: 2em;
+  border: 0;
+  outline: none;
+  border-radius: 4px;
+  padding-left: 8px;
+  background-color: rgb(238, 233, 233);
+  font-family: inherit;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+}
+
+button {
+  width: 20%;
+  height: 2em;
+  border: 0;
+  padding: 0 6px;
+  border-radius: 6px;
+  background-color: black;
+  color: white;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+button:hover {
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+button:active {
+  color: rgb(127, 119, 119);
+}
+
+.weather-data {
+  width: 70%;
+  height: 65%;
+  background-color: orange;
 }
 
 .footer {

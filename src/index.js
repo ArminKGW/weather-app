@@ -1,5 +1,13 @@
 import './styles.css';
 
+const btn = document.querySelector('button');
+const inputCity = document.querySelector('input');
+const city = document.querySelector('.city');
+const temp = document.querySelector('.temp');
+const feelsLike = document.querySelector('.feels-like');
+const humidity = document.querySelector('.humidity');
+const windSpeed = document.querySelector('.wind-speed');
+
 async function getData(city) {
   const cityLowerCase = city.toLowerCase();
   try {
@@ -13,10 +21,27 @@ async function getData(city) {
     const data = await response.json();
     const currentConditions = data.currentConditions;
     const { temp, feelslike, humidity, windspeed } = currentConditions;
-    console.log(temp, feelslike, humidity, windspeed);
+    return { temp, feelslike, humidity, windspeed };
   } catch (error) {
     console.log(error);
   }
 }
 
-getData('turin');
+async function showData() {
+  const cityName = inputCity.value;
+  const data = await getData(cityName);
+  city.textContent = cityName;
+  temp.textContent = data.temp;
+  feelsLike.textContent = data.feelslike;
+  humidity.textContent = data.humidity;
+  windSpeed.textContent = data.windspeed;
+}
+
+function handleEvents() {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    showData();
+  });
+}
+
+// handleEvents();
