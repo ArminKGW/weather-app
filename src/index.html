@@ -1,11 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header-box">
+      <div class="header">
+        <img
+          src="<%= require('./img/clear-sky.png') %>"
+          alt="A clear sky and sun icon"
+        />
+        <div class="title">Weather App</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="search-box">
+        <input type="text" id="search" placeholder="Enter city name" />
+        <button>Search</button>
+      </div>
+    </div>
+    <div class="footer">
+      <a
+        href="https://www.flaticon.com/free-icons/clear-sky"
+        title="clear sky icons"
+        >Clear sky icons created by kosonicon - Flaticon</a
+      >
+    </div>
+  </body>
 </html>

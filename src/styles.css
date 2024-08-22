@@ -1,0 +1,49 @@
+:root {
+  font-family: 'Roboto', sans-serif;
+  --dark-bg: rgb(40, 37, 37);
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 20% 1fr 15%;
+}
+
+.header-box {
+  background-color: var(--dark-bg);
+  display: grid;
+  place-items: center;
+}
+
+.header {
+  display: flex;
+}
+
+img {
+  height: 70px;
+}
+
+.title {
+  color: white;
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.container {
+  background-color: rgb(209, 198, 198);
+}
+
+.footer {
+  background-color: var(--dark-bg);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  margin-left: 24px;
+  font-size: 16px;
+}
