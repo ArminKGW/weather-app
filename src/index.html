@@ -12,22 +12,24 @@
     />
   </head>
   <body>
-    <div class="header-box">
-      <div class="header">
+    <div class="header">
+      <div class="title-box">
         <img
           src="<%= require('./img/clear-sky.png') %>"
           alt="A clear sky and sun icon"
         />
         <div class="title">Weather App</div>
       </div>
+      <button class="switch">°C / °F</button>
     </div>
+
     <div class="container">
       <div class="box">
         <form class="search-box">
           <input type="text" id="user-city" placeholder="Enter city name" />
           <button type="submit">Search</button>
         </form>
-        <div class="weather-data">
+        <div class="weather-data hidden">
           <h1 class="city"></h1>
           <div class="temp"></div>
           <div class="bottom-data">

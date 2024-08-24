@@ -1,23 +1,38 @@
 :root {
   font-family: 'Roboto', sans-serif;
   --dark-bg: rgb(40, 37, 37);
+  --blue-bg: rgb(94, 94, 224);
 }
 
 body {
-  margin: 0;
   height: 100vh;
-  display: grid;
-  grid-template-rows: 15% 1fr 10%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--blue-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.header-box {
-  background-color: var(--dark-bg);
-  display: grid;
-  place-items: center;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .header {
+  padding: 2rem;
+  background-color: var(--dark-bg);
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 25% 1fr 25%;
+  align-items: center;
+}
+
+.title-box {
+  grid-column: 2 / 3;
   display: flex;
+  justify-self: center;
 }
 
 img {
@@ -30,78 +45,90 @@ img {
   font-weight: 700;
 }
 
+.switch {
+  grid-column: 3 / 4;
+  width: 130px;
+  height: 36px;
+  border-radius: 24px;
+  background-color: var(--blue-bg);
+}
+
+.switch:hover {
+  border: 2px solid rgb(218, 206, 206);
+}
+
+.switch:active {
+  color: rgb(166, 163, 163);
+}
+
 .container {
-  background-image: linear-gradient(rgb(94, 94, 224), rgb(54, 54, 141));
+  flex: 1;
 }
 
 .box {
   margin: 40px auto;
-  height: 70%;
-  width: 30%;
+  width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4em;
 }
 
-form {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 4px;
+input,
+button {
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  border: 0;
+  outline: none;
 }
 
 input {
   appearance: none;
-  width: 45%;
-  height: 2em;
-  border: 0;
-  outline: none;
+  padding: 0.4rem;
   border-radius: 4px;
-  padding-left: 8px;
   background-color: rgb(238, 233, 233);
-  font-family: inherit;
   font-size: 1.1rem;
-  box-sizing: border-box;
 }
 
 button {
-  width: 20%;
-  height: 2em;
-  border: 0;
-  padding: 0 6px;
-  border-radius: 6px;
-  background-color: black;
+  padding: 0 0.4rem;
   color: white;
-  font-family: inherit;
   font-size: 1.1rem;
   font-weight: 500;
-  box-sizing: border-box;
+}
+
+form > button {
+  width: 80px;
+  height: 34px;
+  border-radius: 6px;
+  background-color: black;
 }
 
 button:hover {
   cursor: pointer;
+}
+
+form > button:hover {
   border: 2px solid white;
 }
 
-button:active {
+form > button:active {
   color: rgb(127, 119, 119);
 }
 
 .weather-data {
-  width: 70%;
-  height: 75%;
+  padding: 1.6rem 4rem;
   border-radius: 12px;
   background-color: var(--dark-bg);
   color: rgb(234, 226, 226);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 
 .city {
-  font-size: 3rem;
+  font-size: 2.8rem;
+  margin: 1.6rem;
 }
 
 .temp {
@@ -110,19 +137,17 @@ button:active {
 }
 
 .bottom-data {
-  margin-top: 2em;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 12px;
+  margin-top: 2rem;
+  line-height: 2;
 }
 
 .bottom-data div {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 500;
 }
 
 .footer {
+  padding: 1.4rem 0;
   background-color: var(--dark-bg);
   display: flex;
   justify-content: flex-start;
@@ -132,6 +157,10 @@ button:active {
 a {
   text-decoration: none;
   color: white;
-  margin-left: 24px;
-  font-size: 16px;
+  margin-left: 2rem;
+  font-size: 1rem;
+}
+
+.hidden {
+  visibility: hidden;
 }
